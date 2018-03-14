@@ -20,6 +20,18 @@ ApplicationWindow {
             close.accepted = false;
         }
     }
+    onAreaChanged: {
+        if(area===5){
+            if(Qt.platform.os==='android'){
+                var j=unik.getPath(3)+'/unik/config.json'
+                unik.deleteFile(j)
+            }
+            unik.restartApp()
+        }
+        if(area===6){
+            Qt.quit()
+        }
+    }
 
 
 
@@ -60,7 +72,28 @@ ApplicationWindow {
             width: parent.width*0.8
             visible: app.verMenu
         }
+        Rectangle{
+            width: parent.width*0.75
+            height: width
+            anchors.centerIn: parent
+            radius: width*0.01
+            opacity: 0.65
+            border.width: 4
+            border.color: "red"
+            Text {
+                id: lt1
+                anchors.centerIn: parent
+                width: parent.width*0.9
+                text: '<b>App en\nDesarrollo</b>'
+                font.pixelSize: parent.width*0.15
+                color: "red"
+                horizontalAlignment: Text.AlignHCenter
+                wrapMode: Text.WordWrap
+            }
+
+        }
     }
+
     Timer{
         id: tomenapp
         running: false

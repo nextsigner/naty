@@ -33,7 +33,7 @@ Rectangle {
         //anchors.centerIn: raiz
 
         Repeater{
-            model: ["Clientas", "Pedidos", "Entregas", "Pagos", "Deudas"]
+            model: ["Clientas", "Pedidos", "Entregas", "Pagos", "Deudas", "Abrir unik", "Salir"]
             BotonArea{
                 txt: modelData
                 onIrA: {
